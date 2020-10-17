@@ -2,7 +2,9 @@ const axios = require('axios');
 const apiKey = '5e970758';
 const div = document.querySelector('#main');
 const img = document.createElement('img');
-const p = document.createElement('p');
+const h3 = document.createElement('h3');
+const h4 = document.createElement('h4');
+const h5 = document.createElement('h5');
 const srchInput = document.querySelector('#searchInput');
 const btn = document.querySelector('#searchBtn');
 
@@ -18,9 +20,14 @@ btn.addEventListener('click', function (e) {
       for (let i = 0; i < movies.length; i++) {
         // console.log(movies[i]);
         const movieTitle = movies[i].Title;
-        p.innerText = movieTitle;
+        h3.innerText = `Title: ${movieTitle}`;
         const moviePoster = movies[i].Poster;
         img.src = moviePoster;
+        const movieYear = movies[i].Year;
+        h4.innerText = `Year: ${movieYear}`;
+        const imdbID = movies[i].imdbID;
+        h5.innerText = `ID: ${imdbID}`;
+
       }
     })
     .catch(function (error) {
@@ -30,4 +37,6 @@ btn.addEventListener('click', function (e) {
 
 // HTML APPEND
 div.append(img);
-div.append(p);
+div.append(h3);
+div.append(h4);
+div.append(h5);
